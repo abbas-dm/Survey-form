@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+        <link rel="stylesheet" href="style.css">
+
+        <title>Response Page</title>
+    </head>
+    <body onload="showdata()">
+
+        <div class="container">
+            <h1>
+                <strong>Form Responses</strong>
+            </h1>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div id="output">
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+        <script>
+            function showdata() {
+                if (typeof(Storage) !== "undefined") {
+                    if(localStorage.getItem("Data")) {
+                            console.log("Data Got");
+                            let data = JSON.parse(localStorage.getItem("Data"));
+                            for (i=0;i<Object.keys(data).length;i++){
+                                let output = document.getElementById("output");
+                                    output.innerHTML += `
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h2>Response ${i+1}</h2>
+                                        </div>
+                                        <div class="table-responsive">
+                                            <table class="table table-striped">
+                                                <thead class="table-dark">
+                                                    <tr>
+                                                        <td>Query</td>
+                                                        <td>Resopnse ${i+1}</td>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="query">Full Name</td>
+                                                        <td>${data[i].Fname}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="query">Age</td>
+                                                        <td>${data[i].Age}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="query">Mail Address</td>
+                                                        <td>${data[i].Mail}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="query">Internship Role</td>
+                                                        <td>${data[i].Intern}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="query">Recommend to Friend</td>
+                                                        <td>${data[i].Recommend}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="query">Comment</td>
+                                                        <td>${data[i].Comment}</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>    
+                                        </div>
+                                    </div> <br>       
+                                    `;
+                            }
+                        }
+                    }
+                    else {
+                        document.getElementById("result").innerHTML = "Browser does not support Web Storage.";
+                    }
+                }
+        </script>
+    </body>
+</html>
