@@ -1,115 +1,99 @@
 <!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-	<link rel="stylesheet" type="text/css" href="style.css">
-</head>
-<body>
-<div class="container">
-  <header class="header">
-    <h1 id="title" class="text-center">FTS Survey Form</h1>
-    <p id="description" class="description text-center">
-      Thank you for taking the time to help us improve the platform !
-    </p>
-  </header>
-  <form id="survey-form">
-    <div class="form-group">
-      <label id="name-label" for="name">Name</label>
-      <input
-        type="text"
-        name="name"
-        id="name"
-        class="form-control"
-        placeholder="Enter your name"
-        required
-      />
-    </div>
-    <div class="form-group">
-      <label id="email-label" for="email">Email</label>
-      <input
-        type="email"
-        name="email"
-        id="email"
-        class="form-control"
-        placeholder="Enter your Email"
-        required
-      />
-    </div>
-    <div class="form-group">
-      <label id="number-label" for="number"
-        >Age</label
-      >
-      <input
-        type="number"
-        name="age"
-        id="number"
-        min="10"
-        max="99"
-        class="form-control"
-        placeholder="Age"
-        required
-      />
-    </div>
-    <div class="form-group">
-      <p>Which option best describes your current role at FTS?</p>
-      <select id="dropdown" name="role" class="form-control" required>
-        <option disabled selected value>Select current role</option>
-        <option value="student">Web development intern</option>
-        <option value="job">HR intern</option>
-        <option value="learner">Event Management intern</option>
-        <option value="preferNo">Prefer not to say</option>
-        <option value="other">Other</option>
-      </select>
-    </div>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <div class="form-group">
-      <p>Would you recommend FTS to a friend?</p>
-      <label>
-        <input
-          name="user-recommend"
-          value="definitely"
-          type="radio"
-          class="input-radio"
-          checked
-        />Definitely</label
-      >
-      <label>
-        <input
-          name="user-recommend"
-          value="maybe"
-          type="radio"
-          class="input-radio"
-        />Maybe</label
-      >
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+        
+        <title>Survey form</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div id="message">
 
-      <label
-        ><input
-          name="user-recommend"
-          value="not-sure"
-          type="radio"
-          class="input-radio"
-        />Not sure</label
-      >
-    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-    
-    <div class="form-group">
-      <p>Any suggestions?</p>
-      <textarea
-        id="comments"
-        class="input-textarea"
-        name="comment"
-        placeholder="Enter your comment here..."
-      ></textarea>
-    </div>
+        <div class="container"> 
+            <header class="header">
+                <h1 id="title" class="text-center"><strong>FTS Survey Form</strong></h1>
+                <p id="description" class="description text-center">
+                <em>Thank you for taking the time to help us improve the platform !</em>
+                </p>
+            </header>
 
-    <div class="form-group">
-      <button type="submit" id="submit" class="submit-button">
-        Submit
-      </button>
-    </div>
-  </form>
-</div>
+            <form id="survey-form">
+                <div class="form-group" style="text-align: left;">
+                    <label for="fname"><strong>Full name</strong></label>
+                    <input type="text" class="form-control" name="full-name" id="fname" placeholder="Enter your full name" required>
+                </div>
+                <br>
+                <div class="form-group" style="text-align: left;">
+                    <label id="number-label" for="number"><strong>Age</strong></label>
+                    <input type="number" name="age" id="age" min="10" max="99" class="form-control" placeholder="Age" required>
+                </div>
+                <br>
+                <div class="form-group" style="text-align: left;">
+                    <label for="mail"><strong>Mail Id</strong></label>
+                    <input type="email" class="form-control" name="Mail" id="mail" placeholder="Enter your Mail Address" required>
+                </div>
+                <br>
+                <div class="form-group" style="text-align: left;">
+                    <p><strong>Which option best describes your current role at FTS?</strong></p>
+                    <select id="dropdown" name="role" class="form-control" required>
+                        <option disabled selected value>Select current role</option>
+                        <option value="Web development intern">Web development intern</option>
+                        <option value="HR intern">HR intern</option>
+                        <option value="Event Management intern">Event Management intern</option>
+                        <option value="Prefer not to say">Prefer not to say</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <br>
+                <div class="form-group" style="text-align: left;">
+                    <label for="recommend"><strong>Would you recommend FTS to a friend?</strong></label>
+                    <div id="recommend">
+                        <label>
+                            <input id="advice1" name="user-recommend" value="definitely" type="radio" class="input-radio" checked/>Definitely
+                        </label>
+                        <br>
+                        <label>
+                            <input id="advice2" name="user-recommend" value="maybe" type="radio" class="input-radio"/>Maybe
+                        </label>
+                        <br>
+                        <label>
+                            <input id="advice2" name="user-recommend" value="not-sure" type="radio" class="input-radio"/>Not sure
+                        </label>
+                    </div>
+                </div>
+                <br>
+                <div class="form-group" style="text-align: left;">
+                    <label for="suggestions"><strong>Any Suggestions?</strong></label>
+                    <textarea id="suggestions" class="input-textarea" name="feedBack" placeholder="Enter your comment here ....." required></textarea>
+                </div>
+                <br>
+                <div class="form-group">
+                    <button class="btn btn-success submit" id="save" type="button" value="Submit">Submit</button>
+                    <button class="btn btn-primary" type="reset" id="clear" value="Clear">Reset</button>
+                </div>
+            </form>
 
-</body>
+            <br>
+            <a href="response.html" target="_blank" class="btn btn-info" id="view">View Responses</a>
+
+        </div>
+        <br>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+        <script src="script.js"></script>
+    </body>
 </html>
